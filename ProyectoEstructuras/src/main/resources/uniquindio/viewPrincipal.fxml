@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.controllers.ControllerPrincipal">
+    <style>
+        -fx-background-color: #ADD8E6; /* Azul pastel */
+    </style>
+    <children>
+        <TabPane fx:id="tabPrincipal" layoutX="-3.0" prefHeight="627.0" prefWidth="766.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabProcesos" text="Proceso">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="594.0">
+                            <children>
+                                <Label layoutX="54.0" layoutY="65.0" prefHeight="19.0" prefWidth="34.0" text="Id:" />
+                                <TextField fx:id="txtIdproceso" layoutX="157.0" layoutY="62.0" />
+                                <TableView fx:id="tablaProcesos" layoutX="47.0" layoutY="204.0" prefHeight="200.0" prefWidth="436.0">
+                                    <columns>
+                                        <TableColumn fx:id="tblColumProcesoNombre" prefWidth="435.0" text="Procesos" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="47.0" layoutY="110.0" text="Nombre:" />
+                                <TextField fx:id="txtNombreProceso" layoutX="157.0" layoutY="105.0" />
+                                <Button fx:id="btnAgregarProcesos" layoutX="377.0" layoutY="60.0" mnemonicParsing="false" onAction="#actionAgregarProceso" prefHeight="29.0" prefWidth="71.0" text="Agregar" />
+                                <Button fx:id="btnEliminarProcesos" layoutX="378.0" layoutY="141.0" mnemonicParsing="false" onAction="#actionEliminarProceso" prefHeight="29.0" prefWidth="70.0" text="Eliminar" />
+                                <Button fx:id="btnModificarProcesos" layoutX="379.0" layoutY="105.0" mnemonicParsing="false" onAction="#actionModificarProceso" text="Modificar" />
+                                <Button fx:id="btnBuscarProcesos" layoutX="206.0" layoutY="422.0" mnemonicParsing="false" onAction="#actionBuscarProceso" prefHeight="29.0" prefWidth="78.0" text="buscar" />
+                                <TextField fx:id="txtBuscarProcesos" layoutX="47.0" layoutY="422.0" prefHeight="30.0" prefWidth="142.0" />
+                        <Label layoutX="47.0" layoutY="147.0" prefHeight="18.0" prefWidth="195.0" text="Seleccione usuarios para el proceso:" />
+                        <ComboBox fx:id="comboBoxUsuario" layoutX="47.0" layoutY="165.0" prefHeight="30.0" prefWidth="150.0" />
+                        <Button alignment="CENTER" layoutX="209.0" layoutY="165.0" mnemonicParsing="false" onAction="#agregarProcesoUsuario" prefHeight="17.0" prefWidth="45.0" text="+">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabActivdades" text="Actividad">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="675.0">
+                            <children>
+                                <Label layoutX="41.0" layoutY="32.0" text="Nombre:" />
+                                <TextField fx:id="txtNombreActividad" layoutX="132.0" layoutY="27.0" prefHeight="29.0" prefWidth="190.0" />
+                                <Label layoutX="41.0" layoutY="91.0" text="Descripcion:" />
+                                <Label layoutX="42.0" layoutY="186.0" text="Obligatoria:" />
+                                <TextArea fx:id="txtAreaDescripcionActividad" layoutX="134.0" layoutY="74.0" prefHeight="90.0" prefWidth="190.0" />
+                                <TableView fx:id="tablaActividades" layoutX="27.0" layoutY="308.0" prefHeight="164.0" prefWidth="389.0">
+                                    <columns>
+                                        <TableColumn fx:id="tblColumActividades" prefWidth="400.0" text="Actividades" />
+                                    </columns>
+                                </TableView>
+                                <Button fx:id="btnAgregarActividad" layoutX="417.0" layoutY="51.0" mnemonicParsing="false" onAction="#actionAgregarActividad" prefHeight="29.0" prefWidth="99.0" text="Agregar" />
+                                <Button fx:id="btnEliminarActividad" layoutX="417.0" layoutY="134.0" mnemonicParsing="false" onAction="#actionEliminarActividad" prefHeight="29.0" prefWidth="100.0" text="Eliminar" />
+                                <Button fx:id="btnModificarActividad" layoutX="417.0" layoutY="189.0" mnemonicParsing="false" onAction="#actionActualizarActividad" prefHeight="29.0" prefWidth="100.0" text="Modificar" />
+                                <RadioButton fx:id="rbtObligatorioSIactividad" layoutX="134.0" layoutY="186.0" mnemonicParsing="false" text="Si">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioButtonActividadObligatoria" />
+                           </toggleGroup></RadioButton>
+                                <RadioButton fx:id="rbtObligatorioNOactividad" layoutX="192.0" layoutY="186.0" mnemonicParsing="false" text="No" toggleGroup="$radioButtonActividadObligatoria" />
+                                <TextField fx:id="txtBuscarActividad" layoutX="27.0" layoutY="494.0" prefHeight="29.0" prefWidth="154.0" />
+                                <Label layoutX="44.0" layoutY="227.0" text="Seleccionar proceso a vincular:" />
+                                <ComboBox fx:id="cmbVincularActividadAproceso" layoutX="41.0" layoutY="251.0" prefHeight="29.0" prefWidth="174.0" />
+                        <TextField fx:id="txtNombreActividadPrecedera" layoutX="563.0" layoutY="104.0" prefHeight="30.0" prefWidth="206.0" promptText="Nombre actividad que le precedera" />
+                                <Button fx:id="btnBuscarActrividad" layoutX="198.0" layoutY="494.0" mnemonicParsing="false" onAction="#actionBuscarActividad" prefHeight="29.0" prefWidth="102.0" text="Buscar" />
+                        <RadioButton layoutX="571.0" layoutY="32.0" mnemonicParsing="false" text="Al final" toggleGroup="$agregarActividad">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="agregarActividad" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton layoutX="572.0" layoutY="57.0" mnemonicParsing="false" text="Despues de ultima actividad" toggleGroup="$agregarActividad" />
+                        <RadioButton layoutX="571.0" layoutY="82.0" mnemonicParsing="false" text="Actividad precedera" toggleGroup="$agregarActividad" />
+                        <Button alignment="CENTER" layoutX="224.0" layoutY="251.0" mnemonicParsing="false" onAction="#agregarProcesoActividad" prefHeight="27.0" prefWidth="51.0" text="+">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabTareas" text="Tarea">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="649.0">
+                            <children>
+                                <Label layoutX="42.0" layoutY="43.0" text="Descripción:" />
+                                <TextArea fx:id="txtAreaDescripcionTarea" layoutX="115.0" layoutY="29.0" prefHeight="79.0" prefWidth="317.0" />
+                                <Label layoutX="42.0" layoutY="140.0" text="Obligatoria:" />
+                                <Label layoutX="244.0" layoutY="140.0" text="Duracion minutos:" />
+                                <RadioButton fx:id="rbtObligatorioSItarea" layoutX="123.0" layoutY="140.0" mnemonicParsing="false" text="Si">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioBtnObligatoriaTarea" />
+                           </toggleGroup></RadioButton>
+                                <RadioButton fx:id="rbtObligatorioNOtarea" layoutX="165.0" layoutY="140.0" mnemonicParsing="false" text="No" toggleGroup="$radioBtnObligatoriaTarea" />
+                                <TextField fx:id="txtDuracionMinutosTarea" layoutX="361.0" layoutY="135.0" prefHeight="29.0" prefWidth="73.0" />
+                                <Button fx:id="btnAgregarTarea" layoutX="451.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionAgregarTarea" prefHeight="29.0" prefWidth="98.0" text="Agregar" />
+                                <Button fx:id="btnEliminarTarea" layoutX="450.0" layoutY="93.0" mnemonicParsing="false" onAction="#actionEliminarTarea" prefHeight="29.0" prefWidth="99.0" text="Eliminar" />
+                                <Button fx:id="btnModificarTarea" layoutX="450.0" layoutY="143.0" mnemonicParsing="false" onAction="#actionModificarTarea" prefHeight="29.0" prefWidth="100.0" text="Modificar" />
+                                <TableView fx:id="tablaTareas" layoutX="25.0" layoutY="249.0" prefHeight="187.0" prefWidth="404.0">
+                                    <columns>
+                                        <TableColumn fx:id="tblColumnTareaDescripcion" prefWidth="401.0" text="Tareas" />
+                                    </columns>
+                                </TableView>
+                                <Button fx:id="btnBuscarInicioTarea" layoutX="177.0" layoutY="450.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="100.0" text="Buscar inicio" />
+                                <Button fx:id="btnBuscarActualTarea" layoutX="289.0" layoutY="450.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="103.0" text="Buscar actual" />
+                                <TextField fx:id="txtBuscarTarea" layoutX="25.0" layoutY="450.0" prefHeight="29.0" prefWidth="146.0" />
+                                <Label layoutX="33.0" layoutY="183.0" text="Seleccionar actividad a vincular:" />
+                                <ComboBox fx:id="cmbVincularTareaAactividad" layoutX="33.0" layoutY="208.0" prefHeight="29.0" prefWidth="142.0" />
+                        <RadioButton layoutX="559.0" layoutY="14.0" mnemonicParsing="false" text="Al final">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="agregarTarea" />
+                           </toggleGroup></RadioButton>
+                        <TextField fx:id="txtPosicionTarea" layoutX="559.0" layoutY="55.0" prefHeight="26.0" prefWidth="187.0" promptText="Posicion qudesea ingresar tarea" />
+                        <RadioButton layoutX="559.0" layoutY="34.0" mnemonicParsing="false" text="Por posicion" toggleGroup="$agregarTarea" />
+                        <Button alignment="CENTER" layoutX="184.0" layoutY="208.0" mnemonicParsing="false" onAction="#agregarActividadTarea" prefHeight="27.0" prefWidth="51.0" text="+">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabBuscador" text="Buscador">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="txtBuscar_tabDetalle" layoutX="46.0" layoutY="38.0" prefHeight="29.0" prefWidth="132.0" />
+                                <Label layoutX="46.0" layoutY="138.0" text="Detalle:" />
+                                <RadioButton fx:id="rbtTarea_tabDetalle" layoutX="352.0" layoutY="44.0" mnemonicParsing="false" text="Tarea" toggleGroup="$toggleBuscador">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="toggleBuscador" />
+                           </toggleGroup></RadioButton>
+                                <RadioButton fx:id="rbtActividad_tabDetalle" layoutX="275.0" layoutY="44.0" mnemonicParsing="false" text="Actividad" toggleGroup="$toggleBuscador" />
+                                <Button fx:id="btnBuscar_tabDetalle" layoutX="46.0" layoutY="93.0" mnemonicParsing="false" onAction="#buscarDetalleGeneral" prefHeight="29.0" prefWidth="86.0" text="Buscar" />
+                                <Button fx:id="btnIntercambiar_tabDetalle" layoutX="44.0" layoutY="221.0" mnemonicParsing="false" onAction="#intercambiarActividades" prefHeight="28.0" prefWidth="146.0" text="Intercambiar actividades" />
+                                <RadioButton fx:id="rbtProceso_tabDetalle" layoutX="204.0" layoutY="44.0" mnemonicParsing="false" text="Proceso" toggleGroup="$toggleBuscador" />
+                        <Label layoutX="46.0" layoutY="164.0" text="Tiempo max:" />
+                        <Label layoutX="46.0" layoutY="192.0" text="Tiempo min:" />
+                        <Label fx:id="labelTiempoMax" layoutX="118.0" layoutY="164.0" />
+                        <Label fx:id="labelTiempoMin" layoutX="118.0" layoutY="192.0" />
+                        <Button fx:id="btnMostrarActividades" layoutX="250.0" layoutY="168.0" mnemonicParsing="false" onAction="#mostrarActividades" prefHeight="27.0" prefWidth="142.0" text="Mostrar actividades" />
+                        <Button fx:id="btnMostrarTareas" layoutX="402.0" layoutY="168.0" mnemonicParsing="false" onAction="#mostrarTareas" prefHeight="27.0" prefWidth="142.0" text="Mostrar tareas" />
+                        <Button fx:id="btnMostrarPorcesos" layoutX="551.0" layoutY="168.0" mnemonicParsing="false" onAction="#mostrarProcesos" prefHeight="27.0" prefWidth="142.0" text="Mostrar procesos" />
+                        <Label layoutX="44.0" layoutY="14.0" text="Ingrese un nombre :" />
+                        <Label layoutX="204.0" layoutY="14.0" text="Oprima una de las opciones a buscar:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            <Tab text="Usuario">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="40.0" layoutY="44.0" mnemonicParsing="false" onAction="#generarReporteProcesos" text="Generar reporte procesos:" />
+                        <VBox layoutX="40.0" layoutY="121.0" prefHeight="200.0" prefWidth="100.0" />
+                        <VBox fx:id="vBoxProcesosUsuario" layoutX="40.0" layoutY="88.0" prefHeight="472.0" prefWidth="708.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+    </children>
+</AnchorPane>
